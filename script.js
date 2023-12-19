@@ -151,7 +151,7 @@ function changePreview(imageName, readableName) {
   console.log(ui_predefined_package);
   document.getElementById(
     "previewContainer"
-  ).innerHTML = `<img src="images/${imageName}" alt="Preview Image"><br>${readableName}<br>EasyPost predefined_package string: "${ui_predefined_package}"`;
+  ).innerHTML = `<img src="images/${imageName}" alt="Preview Image"><p>UI Readable: "${readableName}"</p><p>EasyPost <a href="https://www.easypost.com/docs/api#predefined-packages" rel="noreferrer nofollow">predefined_package</a> string: "${ui_predefined_package}"</p>`;
   document.getElementById("myDropdown").style.display = "none";
 }
 
