@@ -155,7 +155,7 @@ const packageArray = [
   {
     package_name: "FedExExtraLargeBox",
     carrier: "FedEx",
-    readable: "FedEx ExtraLarge Box",
+    readable: "FedEx Extra Large Box",
   },
 ];
 
@@ -176,22 +176,39 @@ function populateDropdown() {
   });
 }
 
-function toggleDropdown() {
+function toggleDropdown(e) {
+  e.preventDefault();
   var dropdown = document.getElementById("myDropdown");
   if (dropdown.style.display === "none" || dropdown.style.display === "") {
     dropdown.style.display = "block";
+    setTimeout(display, 20);
   } else {
     dropdown.style.display = "none";
   }
 }
 
+function display() {
+  document.getElementById("myDropdown").style.display = "block";
+}
+
 function changePreview(imageName, readableName, carrier) {
   ui_predefined_package = imageName.split(".")[0];
-  console.log(ui_predefined_package);
-  document.getElementById(
-    "previewContainer"
-  ).innerHTML = `<img src="images/${imageName}" alt="Preview Image"><p>UI Readable: "${readableName}"</p><p>EasyPost <a href="https://www.easypost.com/docs/api#predefined-packages" rel="noreferrer nofollow">predefined_package</a> string: "${ui_predefined_package}"</p><p>For use with ${carrier}</p>`;
-  document.getElementById("myDropdown").style.display = "none";
+
+  const tableHeader = `
+  <thead>
+    <tr>
+      <th>UI Readable</th>
+      <th>Predefined Package String</th>
+      <th>Carrier</th>
+    </tr>
+  </thead>
+`;
+
+  const tableRows = `<img src="images/${imageName}" alt="Preview Image"><tr><td>${readableName}</td><td>${ui_predefined_package}</td><td>${carrier}</td></tr>`;
+
+  const tableHTML = `<table>${tableHeader}<tbody>${tableRows}</tbody></table>`;
+
+  document.getElementById("previewContainer").innerHTML = tableHTML;
 }
 
 window.onclick = function (event) {
