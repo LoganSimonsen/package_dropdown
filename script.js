@@ -166,10 +166,11 @@ function populateDropdown() {
     const packageName = item.package_name;
     const readable = item.readable;
     const imageName = `${packageName}.jpg`;
+    const carrier = item.carrier;
 
     const aElement = document.createElement("a");
     aElement.textContent = readable;
-    aElement.onclick = () => changePreview(imageName, readable);
+    aElement.onclick = () => changePreview(imageName, readable, carrier);
 
     dropdown.appendChild(aElement);
   });
@@ -184,7 +185,7 @@ function toggleDropdown() {
   }
 }
 
-function changePreview(imageName, readableName) {
+function changePreview(imageName, readableName, carrier) {
   ui_predefined_package = imageName.split(".")[0];
   console.log(ui_predefined_package);
   document.getElementById(
