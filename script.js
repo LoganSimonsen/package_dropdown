@@ -1,13 +1,13 @@
 let ui_predefined_package = null;
 
 const packageArray = [
-  { package_name: "Card", carrier: "My", readable: "My Card" },
-  { package_name: "Letter", carrier: "My", readable: "My Letter" },
-  { package_name: "Flat", carrier: "My", readable: "My Flat" },
-  { package_name: "Parcel", carrier: "My", readable: "My Parcel" },
+  { package_name: "Card", carrier: "USPS", readable: "My Card" },
+  { package_name: "Letter", carrier: "USPS", readable: "My Letter" },
+  { package_name: "Flat", carrier: "USPS", readable: "My Flat" },
+  { package_name: "Parcel", carrier: "USPS", readable: "My Parcel" },
   {
     package_name: "SoftPack",
-    carrier: "My",
+    carrier: "USPS",
     readable: "My SoftPack",
   },
   {
@@ -119,6 +119,44 @@ const packageArray = [
     carrier: "UPS",
     readable: "UPS Large Express Box",
   },
+  { package_name: "FedExBox", carrier: "FedEx", readable: "FedEx Box" },
+  {
+    package_name: "FedExEnvelope",
+    carrier: "FedEx",
+    readable: "FedEx Envelope",
+  },
+  { package_name: "FedExPak", carrier: "FedEx", readable: "FedEx Pak" },
+  { package_name: "FedExTube", carrier: "FedEx", readable: "FedEx Tube" },
+  {
+    package_name: "FedEx10kgBox",
+    carrier: "FedEx",
+    readable: "FedEx 10kg Box",
+  },
+  {
+    package_name: "FedEx25kgBox",
+    carrier: "FedEx",
+    readable: "FedEx 25kg Box",
+  },
+  {
+    package_name: "FedExSmallBox",
+    carrier: "FedEx",
+    readable: "FedEx Small Box",
+  },
+  {
+    package_name: "FedExMediumBox",
+    carrier: "FedEx",
+    readable: "FedEx Medium Box",
+  },
+  {
+    package_name: "FedExLargeBox",
+    carrier: "FedEx",
+    readable: "FedEx Large Box",
+  },
+  {
+    package_name: "FedExExtraLargeBox",
+    carrier: "FedEx",
+    readable: "FedEx ExtraLarge Box",
+  },
 ];
 
 function populateDropdown() {
@@ -151,7 +189,7 @@ function changePreview(imageName, readableName) {
   console.log(ui_predefined_package);
   document.getElementById(
     "previewContainer"
-  ).innerHTML = `<img src="images/${imageName}" alt="Preview Image"><p>UI Readable: "${readableName}"</p><p>EasyPost <a href="https://www.easypost.com/docs/api#predefined-packages" rel="noreferrer nofollow">predefined_package</a> string: "${ui_predefined_package}"</p>`;
+  ).innerHTML = `<img src="images/${imageName}" alt="Preview Image"><p>UI Readable: "${readableName}"</p><p>EasyPost <a href="https://www.easypost.com/docs/api#predefined-packages" rel="noreferrer nofollow">predefined_package</a> string: "${ui_predefined_package}"</p><p>For use with ${carrier}</p>`;
   document.getElementById("myDropdown").style.display = "none";
 }
 
