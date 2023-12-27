@@ -1,4 +1,8 @@
 /* Styles remain the same as in the previous example */
+body {
+  max-width: 300px;
+  font-family: Calibri, "Trebuchet MS", sans-serif;
+}
 .dropdown {
   position: relative;
   display: inline-block;
@@ -56,4 +60,8 @@ td {
 
 th {
   background-color: #f2f2f2;
+}
+
+.notice {
+  font-size: small;
 }
